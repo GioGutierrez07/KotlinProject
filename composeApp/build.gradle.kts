@@ -24,7 +24,7 @@ kotlin {
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
-            isStatic = true
+            isStatic = false
         }
     }
     
@@ -57,6 +57,11 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.ktor.client.android)
             implementation(libs.android.driver)
+        }
+        //se agrego
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+            implementation(libs.native.driver)
         }
     }
 }
@@ -94,4 +99,10 @@ android {
         debugImplementation(libs.compose.ui.tooling)
     }
 }
-
+sqldelight {
+    databases {
+        create("AppDatabaseSpace") {
+            packageName.set("com.jetbrains.spacetutorial.cache")
+        }
+    }
+}
