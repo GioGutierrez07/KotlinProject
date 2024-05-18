@@ -3,10 +3,10 @@ package com.jetbrains.spacetutorial.cache
 import com.jetbrains.spacetutorial.Links
 import com.jetbrains.spacetutorial.Patch
 import com.jetbrains.spacetutorial.RocketLaunch
-import com.jetbrains.spacetutorial.cache.AppDatabase
+
 
 internal class DataBase(databaseDriverFactory: DatabaseDriverFactory) {
- private val database = AppDatabase(databaseDriverFactory.createDriver())
+ private val database = AppDataBase(databaseDriverFactory.createDriver())
  private val dbQuery = database.appDatabaseQueries
 
  internal fun getAllLaunches(): List<RocketLaunch> {
@@ -54,9 +54,10 @@ internal class DataBase(databaseDriverFactory: DatabaseDriverFactory) {
      large = patchUrlLarge
     ),
     article = articleUrl
-   )
-        )
-      }
+   ))
+  }
 
 
 }
+
+

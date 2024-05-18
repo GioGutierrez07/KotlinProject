@@ -19,5 +19,5 @@ class SpaceXApi {
     }
     suspend fun getAllLaunches(): List<RocketLaunch> {
         return httpClient.get("https://api.spacexdata.com/v5/launches").body()
-            }
+    }
 }
